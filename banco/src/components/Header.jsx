@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StatusBar, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, StatusBar, TouchableOpacity, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons'
-
+import { MotiView, MotiText } from 'moti';
 
 // statusbar.currentHeight funciona apenas em Android
 const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 : 64
@@ -11,14 +11,38 @@ const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 :
 export default function Header({ name }) {
     return (
         <View style={styles.container}>
-            <View style={styles.content}>
-                <Text style={styles.userName}>
+            <MotiView style={styles.content} 
+            from={{
+                translateY: -150,
+                opacity: 0
+            }} animate={{
+                translateY: 0,
+                opacity: 1
+            }}
+            transition={{
+                type: 'timing',
+                duration: 1000, //ms
+                delay: 300 //ms
+            }}
+            >
+                <MotiText style={styles.userName}
+                from={{
+                    translateX: -300,
+                }} animate={{
+                    translateX: 0,
+                }}
+                transition={{
+                    type: 'timing',
+                    duration: 1000, //ms
+                    delay: 300 //ms
+                }}
+                >
                     {name}
-                </Text>
+                </MotiText>
                 <TouchableOpacity activeOpacity={0.9} style={styles.btnUser}>
                     <Feather name='user' size={27} color={'#fff'} />
                 </TouchableOpacity>
-            </View>
+            </MotiView>
         </View>
     )
 }

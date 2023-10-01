@@ -1,4 +1,4 @@
-
+import 'react-native-reanimated'
 import Main from './src/Main'
 
 

@@ -1,7 +1,7 @@
 
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import { React, useState } from 'react'
-
+import { AnimatePresence, MotiText } from 'moti';
 
 export default function Movements({ props }) {
 
@@ -16,9 +16,22 @@ export default function Movements({ props }) {
                 <Text style={st.label}>{props.label}</Text>
 
                 {showValue ? (
-                    <Text style={props.type === 1 ? st.value : st.expenses}>
-                        {props.type === 1 ? `R$ ${props.value}` : `R$ -${props.value}`}
-                    </Text>
+                    <AnimatePresence exitBeforeEnter>
+                        <MotiText style={props.type === 1 ? st.value : st.expenses}
+                            from={{
+                                translateX: 100
+                            }}
+                            animate={{
+                                translateX: 0
+                            }}
+                            transition={{
+                                type: 'timing',
+                                duration: 500
+                            }}
+                        >
+                            {props.type === 1 ? `R$ ${props.value}` : `R$ -${props.value}`}
+                        </MotiText>
+                    </AnimatePresence>
                 ) : (
                     <View style={st.skeleton} />
                 )}

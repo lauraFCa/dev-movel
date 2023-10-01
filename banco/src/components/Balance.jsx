@@ -1,9 +1,24 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
+import { MotiView } from 'moti';
 
 export default function Balance({saldo, gastos}) {
     return (
-        <View style={st.container}>
+        <MotiView style={st.container}
+        from={{
+            rotateX: '-100deg',
+            opacity: 0, 
+        }}
+        animate={{
+            rotateX: '0deg',
+            opacity: 1,
+        }}
+        transition={{
+            type: 'timing',
+            delay: 600,
+            duration: 500
+        }}
+        >
             <View style={st.item}>
                 <Text style={st.itemTitle}>Saldo</Text>
                 <View style={st.content}>
@@ -18,7 +33,7 @@ export default function Balance({saldo, gastos}) {
                     <Text style={st.expenses}>{gastos}</Text>
                 </View>
             </View>
-        </View>
+        </MotiView>
     )
 }
 
