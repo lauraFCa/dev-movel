@@ -1,9 +1,9 @@
-import { FlatList, StyleSheet, Text } from 'react-native'
+
+import { FlatList, StyleSheet, StatusBar } from 'react-native'
 import * as s from '../static/components'
-import Header from '../components/Header';
-import Balance from '../components/Balance';
 import Movements from '../components/Movements';
-import Actions from '../components/Actions';
+
+const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight : 64
 
 
 const list = [
@@ -30,19 +30,10 @@ const list = [
     },
 ]
 
-export default function Home({navigation}) {
-    const nome = "Fulano da Silva";
-
+export default function () {
     return (
         <s.SView style={st.container}>
-            <Header name={nome} navigation={navigation}/>
-            
-            <Balance saldo='3.520,80' gastos='-857,32' />
 
-            <Actions />
-
-            <Text style={st.title}>Últimas movimentações</Text>
-            
             <FlatList
                 style={st.list}
                 data={list}
@@ -53,14 +44,15 @@ export default function Home({navigation}) {
                 }
             />
         </s.SView>
-    );
+    )
 }
 
 
 const st = StyleSheet.create({
     container: {
-        
         height: '100%',
+        paddingTop: statusBarHeight,
+        backgroundColor: '#9e9e9e'
     },
     title: {
         fontSize: 18,

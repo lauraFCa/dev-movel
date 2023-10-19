@@ -7,3 +7,5 @@ export default function App() {
     <Main/>
   );
 }
+//    "react-native-safe-area-context": "4.5.0",
+//"react-native-screens": "~3.20.0"

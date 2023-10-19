@@ -8,7 +8,7 @@ const statusBarHeight = StatusBar.currentHeight ? StatusBar.currentHeight + 22 :
 // se for Android, a propriedade existe |  se for ios, padding sera 64
 
 
-export default function Header({ name }) {
+export default function Header({ name, navigation }) {
     return (
         <View style={styles.container}>
             <MotiView style={styles.content} 
@@ -39,7 +39,7 @@ export default function Header({ name }) {
                 >
                     {name}
                 </MotiText>
-                <TouchableOpacity activeOpacity={0.9} style={styles.btnUser}>
+                <TouchableOpacity activeOpacity={0.9} style={styles.btnUser} onPress={ () => navigation.navigate('Perfil', { name: name}) }>
                     <Feather name='user' size={27} color={'#fff'} />
                 </TouchableOpacity>
             </MotiView>

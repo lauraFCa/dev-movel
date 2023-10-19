@@ -1,18 +1,20 @@
-import { StyleSheet } from 'react-native';
-import { View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import Home from './pages/Home';
+import Transacoes from './pages/Transacoes';
+import Perfil from './pages/Perfil';
+
+const Drawer = createDrawerNavigator();
 
 
 export default function Main() {
     return (
-        <View style={styles.main}>
-            <Home />
-        </View>
+        <NavigationContainer>
+            <Drawer.Navigator>
+                <Drawer.Screen name="Home" component={Home} />
+                <Drawer.Screen name="Transacoes" component={Transacoes} />
+                <Drawer.Screen name="Perfil" component={Perfil} />
+            </Drawer.Navigator>
+        </NavigationContainer>
     );
 }
-
-const styles = StyleSheet.create({
-    main: {
-        
-    }
-})
