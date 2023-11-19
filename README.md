@@ -5,6 +5,14 @@ Disciplina de Desenvolvimento Móvel
 Utilizando online:  
 Plataforma [snack.expo](https://snack.expo.dev/)
 
+Tópicos abordados:
+
+- Styled Components
+- Navigators (Native e Drawer)
+- Menus
+- Firebase (Firestore)
+- Graphs
+
 ## Trabalhando com Expo
 
 Etapas de instalação: 
